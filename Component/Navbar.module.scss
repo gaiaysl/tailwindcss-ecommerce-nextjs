@@ -1,0 +1,163 @@
+.nav{
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #eaeaea;
+
+}
+.navContainer{
+  @apply max-w-7xl mx-auto px-2 sm:px-6 lg:px-8
+}
+.navContent{
+  @apply relative flex items-center justify-between h-16
+}
+.contentTwo{
+  @apply absolute inset-y-0 left-0 flex items-center sm:hidden
+}
+.input{
+  position: relative;
+  z-index: 1;
+}
+.searchBox{
+  width: 100%;
+  font-size: 14px;
+  color: #333;
+  background-color: #f3f3f3;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  padding: 10px 40px 10px 15px;
+  box-sizing: border-box;
+  outline: none;
+  transition: all ease 0.3s;
+  margin-top: 33px;
+  margin-bottom: 2px;
+}
+.navButton{
+  @apply inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white
+}
+.icon{
+  @apply block h-6 w-6
+}
+.menuIcon{
+  @apply block h-6 w-6
+}
+.menu{
+  @apply flex-1 flex items-center justify-center  sm:justify-start
+}
+.container{
+  @apply flex-shrink-0 flex items-center
+}
+.image{
+  @apply lg:hidden
+}
+
+.navigation{
+  @apply hidden sm:block sm:ml-6
+}
+.right{
+  @apply absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0
+}
+.button{
+  @apply bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white
+}
+.span{
+  @apply sr-only
+}
+.menuButton{
+  @apply
+  p-1
+  rounded-full
+  text-gray-400
+  hover:text-white
+  focus:outline-none
+  focus:ring-2
+  focus:ring-offset-2
+  focus:ring-offset-gray-800
+  focus:ring-white
+}
+.menuItems{
+  @apply origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none
+}
+.navigationTwo{
+  @apply flex space-x-4
+}
+.rightText{
+  @apply sr-only
+}
+.rightButton{
+  @apply h-6 w-6
+}
+.rightImage{
+  @apply h-8 w-8 rounded-full
+}
+.disc{
+  @apply sm:hidden
+}
+.panel{
+  @apply px-2 pt-2 pb-3 space-y-1
+}
+.durum1{
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  color: black;
+  letter-spacing: 0.25px;
+}
+.durum1:hover{
+
+  color:#0070f3;
+}
+
+.durum2{
+  @apply text-gray-300 hover:bg-gray-700 hover:text-white
+}
+.durum3{
+  @apply px-3 py-2 rounded-md text-sm font-medium
+
+}
+.enter{
+  @apply transition ease-out duration-100
+}
+.enterFrom{
+  @apply transform opacity-0 scale-95
+}
+.enterTo{
+  @apply transform opacity-100 scale-100
+}
+.leave{
+  @apply transition ease-in duration-75
+}
+.leaveFrom{
+  @apply transform opacity-100 scale-100
+}
+.leaveTo{
+  @apply transform opacity-0 scale-95
+}
+.active1{
+  @apply bg-gray-100
+}
+.active2{
+  @apply block px-4 py-2 text-sm text-gray-700
+}
+.active3{
+  @apply bg-gray-100
+}
+
+.active4{
+  @apply block px-4 py-2 text-sm text-gray-700
+}
+.active5{
+  @apply bg-gray-100
+}
+.active6{
+  @apply block px-4 py-2 text-sm text-gray-700
+}
+.item1{
+  @apply bg-gray-900 text-white
+}
+.item2{
+  @apply text-gray-300 hover:bg-gray-700 hover:text-white
+}
+.item3{
+  @apply block px-3 py-2 rounded-md text-base font-medium
+}
+
+
+
