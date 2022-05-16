@@ -7,6 +7,7 @@ export default function Layout({children,categories}){
 <Navbar categories={categories} />
             {children}
 <Footer/>
+
         </div>
     )
 }

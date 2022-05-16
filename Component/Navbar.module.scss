@@ -10,11 +10,28 @@
   @apply relative flex items-center justify-between h-16
 }
 .contentTwo{
-  @apply absolute inset-y-0 left-0 flex items-center sm:hidden
+  @apply
+  inset-y-0
+  left-0
+  flex
+  items-center
+  sm:hidden
+}
+
+.navButton{
+  @apply inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white
 }
 .input{
   position: relative;
   z-index: 1;
+
+}
+.svg{
+  @apply h-6 w-6 mt-10 ml-2
+}
+.form{
+  display: flex;
+  flex-direction: row;
 }
 .searchBox{
   width: 100%;
@@ -30,9 +47,7 @@
   margin-top: 33px;
   margin-bottom: 2px;
 }
-.navButton{
-  @apply inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white
-}
+
 .icon{
   @apply block h-6 w-6
 }
@@ -40,17 +55,19 @@
   @apply block h-6 w-6
 }
 .menu{
-  @apply flex-1 flex items-center justify-center  sm:justify-start
+  @apply flex-1 flex items-center justify-start  sm:justify-start
 }
 .container{
   @apply flex-shrink-0 flex items-center
 }
 .image{
-  @apply lg:hidden
+  @apply
+  lg:hidden
 }
 
 .navigation{
-  @apply hidden sm:block sm:ml-6
+  @apply
+  hidden sm:block sm:ml-6
 }
 .right{
   @apply absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0
@@ -63,19 +80,50 @@
 }
 .menuButton{
   @apply
+  flex
   p-1
-  rounded-full
-  text-gray-400
-  hover:text-white
-  focus:outline-none
-  focus:ring-2
-  focus:ring-offset-2
-  focus:ring-offset-gray-800
-  focus:ring-white
+  hover:text-blue-700
+  max-h-10
+
+}
+.favorite{
+  @apply
+  flex
+  p-1
+  hover:text-blue-700
+  max-h-10
+}
+
+.shopping{
+  @apply
+  flex
+  p-1
+  hover:text-blue-700
+  max-h-10
+
 }
 .menuItems{
-  @apply origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none
+
+  @apply
+  absolute
+  mt-2
+  w-48
+  shadow-lg
+  py-1
+  bg-white
+  ring-1
+  ring-black ring-opacity-5 focus:outline-none
+
 }
+.icons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+
+}
+
 .navigationTwo{
   @apply flex space-x-4
 }
@@ -89,7 +137,8 @@
   @apply h-8 w-8 rounded-full
 }
 .disc{
-  @apply sm:hidden
+  @apply
+  sm:hidden
 }
 .panel{
   @apply px-2 pt-2 pb-3 space-y-1
