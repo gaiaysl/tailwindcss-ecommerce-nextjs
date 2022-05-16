@@ -12,7 +12,7 @@ export default function ProductsDetail({product, categories}){
     return(
         <Layout categories={categories}>
             <Head>
-                <title>GAİA|Product</title>
+                <title>GAIA|Product</title>
             </Head>
            <ProductDetail product={product} />
 
