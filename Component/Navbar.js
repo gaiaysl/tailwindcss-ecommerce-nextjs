@@ -49,28 +49,14 @@ export default function Navbar({categories}) {
                                     <div className={styles.input}>
 
                                         <form className={styles.form}>
-                                                    <input className={styles.searchBox} type="text" name="name"
-                                                           tabIndex="1"
-                                                           placeholder="Aradığınız ürün, kategori veya markayı yazınız"
-                                                           maxLength="50"
-                                                    />
+                                            <input className={styles.searchBox} type="text" name="name"
+                                                   tabIndex="1"
+                                                   placeholder="Aradığınız ürün, kategori veya markayı yazınız 🔍"
+                                                   maxLength="50"
+                                            />
 
-                                                    <svg xmlns="http://www.w3.org/2000/svg" className={styles.svg} fill="none"
-                                                                 viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                                                <path strokeLinecap="round" strokeLinejoin="round"
-                                                                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                                                            </svg>
-
-
-                                                </form>
+                                        </form>
                                     </div>
-
-
-
-
-
-
-
                                     <div className={styles.navigationTwo}>
                                         {categories &&
                                             categories.length > 0 &&
@@ -95,31 +81,29 @@ export default function Navbar({categories}) {
                             <div className={styles.right}>
 
                                 {/* Profile dropdown */}
-                                <Menu as="div" className="ml-3 relative">
-                                    <div className={styles.icons}>
 
-                                        <Menu.Button className={styles.menuButton} >
+                                <Menu as="div" className="ml-3">
+                                    <div className={styles.icons}>
+                                        <Menu.Button className={styles.login} >
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
                                                  viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                                 <path strokeLinecap="round" strokeLinejoin="round"
                                                       d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                                            </svg><p className="hidden sm:block sm:ml-6">Giriş Yap</p>
+                                            </svg><p className="hidden sm:block">Giriş Yap</p>
                                         </Menu.Button>
-
                                         <div className={styles.favorite}>
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
                                              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                             <path strokeLinecap="round" strokeLinejoin="round"
                                                   d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                                        </svg><p className="hidden sm:block sm:ml-6">Favorilerim </p>
+                                        </svg><p className="hidden sm:block">Favorilerim </p>
                                         </div>
-
                                         <div className={styles.shopping}>
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
                                              viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                             <path strokeLinecap="round" strokeLinejoin="round"
                                                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
-                                        </svg><p className="hidden sm:block sm:ml-6">Sepetim</p>
+                                        </svg><p className="hidden sm:block">Sepetim</p>
                                         </div>
                                     </div>
 
@@ -145,8 +129,9 @@ export default function Navbar({categories}) {
                                             </Menu.Item>
                                             <Menu.Item>
                                                 {({ active }) => (
+
                                                     <a
-                                                        href="#"
+                                                        href="/register"
                                                         className={classNames(active ? styles.active3 : '', styles.active4 )}
                                                     >
                                                         Üye Ol
@@ -184,6 +169,10 @@ export default function Navbar({categories}) {
 
                 </>
             )}
+
+
         </Disclosure>
+
+
     )
 }
