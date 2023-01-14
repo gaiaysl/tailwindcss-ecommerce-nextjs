@@ -1,5 +1,5 @@
 import {StarIcon} from "@heroicons/react/solid";
-
+import Link from "next/link";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -8,16 +8,16 @@ function classNames(...classes) {
 export default function ProductDetail({product}) {
 
     return (
-        <div className="bg-white">
-            <div className="pt-6">
+        <div className=" mx-auto flex flex-col items-center justify-center ">
+            <div className="pt-6  ">
                 <nav aria-label="Breadcrumb">
-                    <ol role="list" className="max-w-2xl mx-auto px-4 flex items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8">
+                    <ol role="list" className=" mx-auto px-4 flex items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8">
 
                             <li key={product.title}>
                                 <div className="flex items-center">
-                                    <a href={product.title} className="mr-2 text-sm font-medium text-gray-900">
+                                    <div  className="mr-2 text-sm font-medium text-gray-900">
                                         {product.category}
-                                    </a>
+                                    </div>
                                     <svg
                                         width={16}
                                         height={20}
@@ -33,9 +33,9 @@ export default function ProductDetail({product}) {
                             </li>
 
                         <li className="text-sm">
-                            <a href={product.id} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
+                            <div  aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
                                 {product.title}
-                            </a>
+                            </div>
                         </li>
                     </ol>
                 </nav>
@@ -43,35 +43,13 @@ export default function ProductDetail({product}) {
 
 
                 {/* Image gallery */}
-                <div className="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
-                    <div className="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-                        <img
-                            src={product.image}
-                            alt={product.title}
-                            className="w-full h-full object-center object-cover"
-                        />
-                    </div>
-                    <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-                        <div className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-                            <img
-                                src={product.image}
-                                alt={product.title}
-                                className="w-full h-full object-center object-cover"
-                            />
-                        </div>
-                        <div className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-                            <img
-                                src={product.image}
-                                alt={product.title}
-                                className="w-full h-full object-center object-cover"
-                            />
-                        </div>
-                    </div>
+                <div className="mt-6 mx-auto ">
+                   
                     <div className="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
                         <img
                             src={product.image}
                             alt={product.title}
-                            className="w-full h-full object-center object-cover"
+                            className="mx-auto w-96 h-full object-center object-cover"
                         />
                     </div>
                 </div>
@@ -95,9 +73,9 @@ export default function ProductDetail({product}) {
 
                         </div>
                         <p className="sr-only">{product.rating.rate} out of 5 stars</p>
-                        <a href={product.id} className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                        <div className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
                             {product.rating.count} reviews
-                        </a>
+                        </div>
                     </div>
                 </div>
 
@@ -106,7 +84,7 @@ export default function ProductDetail({product}) {
                 {/* Product info */}
                 <div className="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
                     <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                        <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">{product.title}</h1>
+                        <h1 className="text-xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">{product.title}</h1>
                     </div>
 
                     {/* Options */}

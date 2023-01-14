@@ -63,7 +63,7 @@ export default function Navbar({categories}) {
                                             categories.map((category) => (
 
 
-                                                    <a
+                                                    <Link
                                                         key={category}
                                                         href={`/category/${category}`}
                                                         className={classNames(
@@ -73,7 +73,7 @@ export default function Navbar({categories}) {
                                                         aria-current={category ? 'page' : undefined}
                                                     >
                                                         {category}
-                                                    </a>
+                                                    </Link>
                                         ))}
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@ export default function Navbar({categories}) {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a
-                                                        href="#"
+                                                        href="/signin#login"
                                                         className={classNames(active ? styles.active1 : '', styles.active2)}
                                                     >
                                                         Giriş Yap
@@ -131,7 +131,7 @@ export default function Navbar({categories}) {
                                                 {({ active }) => (
 
                                                     <a
-                                                        href="/register"
+                                                        href="/signin#register"
                                                         className={classNames(active ? styles.active3 : '', styles.active4 )}
                                                     >
                                                         Üye Ol

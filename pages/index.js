@@ -1,4 +1,3 @@
-
 import ProductList from "../Component/ProductList";
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
@@ -40,6 +39,7 @@ export async function getStaticProps() {
         },
     }
 }
+
 
 
 

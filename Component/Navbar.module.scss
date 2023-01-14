@@ -4,7 +4,7 @@
 
 }
 .navContainer{
-  @apply max-w-7xl mx-auto px-2 sm:px-6 lg:px-8
+  @apply max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4
 }
 .navContent{
   @apply relative flex items-center justify-between h-16
@@ -57,10 +57,6 @@
 }
 .container{
   @apply flex-shrink-0 flex items-center
-}
-.image{
-  @apply
-  lg:hidden
 }
 
 .navigation{
