@@ -120,7 +120,7 @@ export default function Navbar({categories}) {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a
-                                                        href="/signin#login"
+                                                        href="/signin"
                                                         className={classNames(active ? styles.active1 : '', styles.active2)}
                                                     >
                                                         Giriş Yap
@@ -131,7 +131,7 @@ export default function Navbar({categories}) {
                                                 {({ active }) => (
 
                                                     <a
-                                                        href="/signin#register"
+                                                        href="/signin"
                                                         className={classNames(active ? styles.active3 : '', styles.active4 )}
                                                     >
                                                         Üye Ol
