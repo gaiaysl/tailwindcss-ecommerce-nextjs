@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Layout from '../Component/Layout'
 
-export default function deneme(){
+export default function signin(){
 
   const [openTab, setOpenTab] = useState(1);
 
