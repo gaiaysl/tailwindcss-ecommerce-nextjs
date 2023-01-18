@@ -12,6 +12,8 @@ export default async function handler(req,res){
         return res.json({status:'kullanıcı bulunamadı'})
     }
     else{
-        res.redirect('/signin')
+     res.redirect(302,"/")
+
+       
     }
 }

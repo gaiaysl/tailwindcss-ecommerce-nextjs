@@ -2,15 +2,16 @@ import Link from "next/link";
 
 
 export default function ProductList({products}) {
-    return (
-        <div className="">
-            <div className="max-w-2xl mx-auto py-10 sm:px-6 lg:max-w-7xl lg:px-8">
-                <h2 className=" text-2xl  tracking-tight  text-slate-400">New Products</h2>
 
-                <div className=" mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+    return (
+        <div className=" ">
+            <div className="max-w-2xl mx-auto py-10 sm:px-6 lg:max-w-7xl lg:px-8 ">
+            
+
+                <div className=" mt-6 grid grid-cols-1 gap-y-10 mx-auto sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                     {products.map((product) => (
-                        <div key={product.id} className="group relative">
-                            <div className="shadow-2xl  w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                        <div key={product.id} className=" p-4  h-96 w-64 shadow-xl rounded-lg   ">
+                            <div className="  flex flex-col items-center  ">
 
 
 
@@ -18,20 +19,21 @@ export default function ProductList({products}) {
                                         href={`/product/${product.id}`} >
                                         <img
                                             src={product.image}
-                                            alt={product.title}
-                                            className=" w-full h-96 object-center object-fit lg:w-full lg:h-full"
+                                          
+                                            className="w-48 h-56  object-fit  "
                                         />
                                 </Link>
-
-                            </div>
-                            <div className="mt-4 flex justify-between">
-                                <div>
                                 
-
-                                    <p className="mt-1 text-sm text-gray-500">{product.color}</p>
-                                </div>
-                                <p className="text-sm font-medium text-gray-900">{product.price}</p>
+                               
                             </div>
+                            <div className=" flex flex-col text-center gap-y-3  ">
+                                <h1 className="text-sm mt-6 font-bold  text-gray-900">{product.title}</h1>
+                                <p className="text-sm font-medium text-gray-900">₺{product.price}</p>
+                               
+                                </div>
+                           
+                                <button className="border-2 bg-green-400 rounded-lg text-white text-sm">Sepete ekle</button>
+                          
                         </div>
                     ))}
                 </div>
