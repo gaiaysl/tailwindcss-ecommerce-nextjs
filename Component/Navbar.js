@@ -1,8 +1,15 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import { SearchIcon } from '@heroicons/react/outline';
+
+import { Store } from '../utils/Store';
 import React, { useContext, useEffect, useState } from 'react';
+
 export default function Navbar(){
+
+  const { state } = useContext(Store);
+  const { cart } = state;
+
     const [query, setQuery] = useState('');
     const router = useRouter();
   const submitHandler = (e) => {
@@ -35,7 +42,13 @@ export default function Navbar(){
               </button>
             </form>
             <div className='mx-2 flex flex-row gap-x-2 '>
-                <Link  href="/cart">Cart</Link>
+                <Link  href="/cart">Cart
+                {cart.cartItems.length > 0 && (
+                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
+                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                    </span>
+                  )}
+                </Link>
                 <Link  href="/login">Login</Link>
                 
                 

@@ -1,5 +1,6 @@
 import {StarIcon} from "@heroicons/react/solid";
-import Link from "next/link";
+import React, { useContext } from 'react'
+import {Store} from '../utils/Store'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -7,10 +8,24 @@ function classNames(...classes) {
 
 export default function ProductDetail({product}) {
 
+    const { state, dispatch } = useContext(Store);
+
+    const addToCartHandler = () => {
+        const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
+        const quantity = existItem ? existItem.quantity + 1 : 1;
+    
+        if (product.countInStock < quantity) {
+          alert('Sorry. Product is out of stock');
+          return;
+        }
+    
+        dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
+      };
+
     return (
-        <div className=" mx-auto flex flex-col items-center justify-center ">
-            <div className="pt-6  ">
-                <nav aria-label="Breadcrumb">
+        <div className=" mx-auto max-w-2xl  my-10">
+            <div className="rounded-lg shadow-xl p-6 py-4 ">
+                <nav aria-label="Breadcrumb  ">
                     <ol role="list" className=" mx-auto px-4 flex items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8">
 
                             <li key={product.title}>
@@ -43,13 +58,13 @@ export default function ProductDetail({product}) {
 
 
                 {/* Image gallery */}
-                <div className="mt-6 mx-auto ">
+                <div className="mt-6 sm:mx-auto ">
                    
-                    <div className="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
+                    <div className="mt-6 py-4 h-96 mx-auto flex items-center justify-center  sm:overflow-hidden ">
                         <img
                             src={product.image}
-                            alt={product.title}
-                            className="mx-auto w-96 h-full object-center object-cover"
+                          
+                            className= " rounded-xl w-64 h-full object-fill "
                         />
                     </div>
                 </div>
@@ -82,35 +97,38 @@ export default function ProductDetail({product}) {
 
 
                 {/* Product info */}
-                <div className="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
-                    <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                        <h1 className="text-xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">{product.title}</h1>
+                <div className="max-w-3xl mx-auto pt-2 py-4  ">
+                    <div className=" mx-6">
+                        <h1 className="text-xl font-extrabold tracking-tight text-gray-900 sm:text-2xl">{product.title}</h1>
                     </div>
 
-                    {/* Options */}
-                    <div className="mt-4 lg:mt-0 lg:row-span-3">
-                        <h2 className="sr-only">Product information</h2>
-                        <p className="text-3xl text-gray-900">{product.price}</p>
-                    </div>
+                   
 
-                    <div className="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+                    <div className=" py-2 lg:pt-2  ">
                         {/* Description and details */}
-                        <div>
+                        <div className="sm:px-6 lg:max-w-7xl lg:pt-8 lg:py-6 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8" >
                             <h3 className="sr-only">Description</h3>
 
-                            <div className="space-y-6">
-                                <p className="text-base text-gray-900">{product.description}</p>
+                            <div className=" lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8 space-y-4 flex flex-col items-center ">
+                                <p className=" text-gray-900 text-sm">{product.description}</p>
+                                
                             </div>
-                        </div>
-
-                        <div className="mt-10">
-                            <h2 className="text-sm font-medium text-gray-900">Details</h2>
-
-                            <div className="mt-4 space-y-6">
-                                <p className="text-sm text-gray-600">{product.title}</p>
-                            </div>
+                             {/* Options */}
+                    <div className="py-4  lg:row-span-3 ">
+                        <h2 className="sr-only">Product information</h2>
+                       
+                        <p className="text-2xl lg:text-center text-gray-900 font-semibold mb-2">{product.price}0₺</p>
+                        <div className="flex flex-col  items-center">
+                        <button
+                        onClick={addToCartHandler}
+                         className="w-36  bg-green-400 p-2 rounded-lg text-white text-md">add to cart</button>
                         </div>
                     </div>
+                        </div>
+
+                        
+                    </div>
+                   
                 </div>
             </div>
         </div>

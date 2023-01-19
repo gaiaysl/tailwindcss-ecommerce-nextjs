@@ -7,7 +7,7 @@ import Layout from "../Component/Layout";
 export default function Home({products}){
     return(
 
-
+        
 <Layout >
 
         <div className={styles.content}>
@@ -16,6 +16,7 @@ export default function Home({products}){
         </div>
 
 </Layout>
+
     )
 }
 

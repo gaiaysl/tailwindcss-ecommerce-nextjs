@@ -1,17 +1,20 @@
 import Link from "next/link";
-
+import { useContext } from "react";
+import { Store } from '../utils/Store';
 
 export default function ProductList({products}) {
+
+   
 
     return (
         <div className=" ">
             <div className="max-w-2xl mx-auto py-10 sm:px-6 lg:max-w-7xl lg:px-8 ">
             
 
-                <div className=" mt-6 grid grid-cols-1 gap-y-10 mx-auto sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                <div className=" mt-6 grid grid-cols-1 gap-y-10 p-4 mx-auto sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                     {products.map((product) => (
-                        <div key={product.id} className=" p-4  h-96 w-64 shadow-xl rounded-lg   ">
-                            <div className="  flex flex-col items-center  ">
+                        <div key={product.id} className="flex flex-col items-center text-center mx-auto justify-between  p-4  h-96 w-64 shadow-xl rounded-lg   ">
+                            <div className="  flex flex-col items-center   ">
 
 
 
@@ -20,7 +23,7 @@ export default function ProductList({products}) {
                                         <img
                                             src={product.image}
                                           
-                                            className="w-48 h-56  object-fit  "
+                                            className="w-44 h-48  object-fit  "
                                         />
                                 </Link>
                                 
@@ -32,7 +35,11 @@ export default function ProductList({products}) {
                                
                                 </div>
                            
-                                <button className="border-2 bg-green-400 rounded-lg text-white text-sm">Sepete ekle</button>
+                                <button 
+                               onClick={() => addToCartHandler(product)}
+                                className=" p-2  bg-green-400 rounded-lg text-white text-sm">
+                                add to cart
+                                </button>
                           
                         </div>
                     ))}
