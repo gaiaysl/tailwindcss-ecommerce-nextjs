@@ -2,6 +2,7 @@ import {StarIcon} from "@heroicons/react/solid";
 import React, { useContext } from 'react'
 import {Store} from '../utils/Store'
 
+
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
@@ -11,7 +12,8 @@ export default function ProductDetail({product}) {
     const { state, dispatch } = useContext(Store);
 
     const addToCartHandler = () => {
-        const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
+      
+        const existItem = state.cart.cartItems.find((x) => x.id === product.id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
     
         if (product.countInStock < quantity) {
@@ -117,7 +119,7 @@ export default function ProductDetail({product}) {
                     <div className="py-4  lg:row-span-3 ">
                         <h2 className="sr-only">Product information</h2>
                        
-                        <p className="text-2xl lg:text-center text-gray-900 font-semibold mb-2">{product.price}0₺</p>
+                        <p className="text-2xl lg:text-center text-gray-900 font-semibold mb-2">{product.price}₺</p>
                         <div className="flex flex-col  items-center">
                         <button
                         onClick={addToCartHandler}

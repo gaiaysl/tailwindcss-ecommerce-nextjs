@@ -32,6 +32,7 @@
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.31.1",
     "react-icons": "^4.3.1",
+    "react-toastify": "^9.1.1",
     "reat": "^0.0.1-security",
     "redux": "^4.2.0",
     "router": "^1.3.7",

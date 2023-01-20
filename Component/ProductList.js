@@ -4,7 +4,19 @@ import { Store } from '../utils/Store';
 
 export default function ProductList({products}) {
 
-   
+    const { state, dispatch } = useContext(Store);
+
+    const addToCartHandler = () => {
+        const existItem = state.cart.cartItems.find((x) => x.slug === product.id);
+        const quantity = existItem ? existItem.quantity + 1 : 1;
+    
+        if (product < quantity) {
+          alert('Sorry. Product is out of stock');
+          return;
+        }
+    
+        dispatch({ type: 'CART_ADD_ITEM', payload: { ...products, quantity } });
+      };
 
     return (
         <div className=" ">
@@ -36,7 +48,7 @@ export default function ProductList({products}) {
                                 </div>
                            
                                 <button 
-                               onClick={() => addToCartHandler(product)}
+                                onClick={addToCartHandler}
                                 className=" p-2  bg-green-400 rounded-lg text-white text-sm">
                                 add to cart
                                 </button>
