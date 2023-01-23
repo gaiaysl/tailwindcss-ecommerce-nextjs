@@ -1,6 +1,4 @@
 import ProductList from "../Component/ProductList";
-
-import styles from '../styles/Home.module.scss';
 import Layout from "../Component/Layout";
 
 
@@ -10,7 +8,7 @@ export default function Home({products}){
         
 <Layout >
 
-        <div className={styles.content}>
+        <div>
             <ProductList products={products}/>
             
         </div>

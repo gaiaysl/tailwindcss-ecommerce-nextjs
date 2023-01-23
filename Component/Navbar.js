@@ -1,15 +1,16 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import { SearchIcon } from '@heroicons/react/outline';
-
+import { useSession } from 'next-auth/react';
 import { Store } from '../utils/Store';
+import { ToastContainer } from 'react-toastify';
 import React, { useContext, useEffect, useState } from 'react';
 
 export default function Navbar(){
 
   const { state } = useContext(Store);
   const { cart } = state;
-
+  const { status, data: session } = useSession();
     const [query, setQuery] = useState('');
     const router = useRouter();
   const submitHandler = (e) => {
@@ -21,12 +22,15 @@ export default function Navbar(){
     return(
         <div className='flex flex-row justify-between shadow-md px-4 my-4 h-12'>
             <div className='font-bold text-2xl '>
+            <ToastContainer position="bottom-center" limit={1} />
                 <Link href="/">GAIA</Link>
                 </div>
                 <form
               onSubmit={submitHandler}
               className="mx-auto mb-4 hidden w-full h-8 justify-center md:flex"
             >
+
+      
               <input
                 onChange={(e) => setQuery(e.target.value)}
                 type="text"
@@ -49,7 +53,15 @@ export default function Navbar(){
                     </span>
                   )}
                 </Link>
-                <Link  href="/login">Login</Link>
+                {status === 'loading' ? (
+                'Loading'
+              ) : session?.user ? (
+                session.user.name
+              ) : (
+                <Link href="/login">
+                  <span className="p-2">Login</span>
+                </Link>
+              )}
                 
                 
             </div>

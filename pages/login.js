@@ -1,4 +1,3 @@
-
 import Layout from "../Component/Layout"
 export default function Login(){
     return(

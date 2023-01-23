@@ -6,28 +6,32 @@ import Layout from '../Component/Layout';
 import { Store } from '../utils/Store';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 
 function Cart() {
+
+
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
   const removeItemHandler = (item) => {
-    
     dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
   };
-  const add = (item) => {
-    
-   
+  const updateCartHandler = (item, qty) => {
+    const quantity = Number(qty);
+    if (item < quantity) {
+      return toast.error('Sorry. Product is out of stock');
+    }
+    dispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity } });
+ 
   };
   
 
   return (
     <Layout title="Shopping Cart">
-      <h1 className="mb-4 text-xl">Shopping Cart</h1>
+      <h1 className="mb-4 my-6 text-xl mx-auto max-w-3xl font-semibold  ">Shopping Cart</h1>
       {cartItems.length === 0 ? (
         <div>
           Cart is empty. <Link href="/">Go shopping</Link>
@@ -62,16 +66,18 @@ function Cart() {
                       </Link>
                     </td>
                     <td className="p-5 text-right">
-                     <div className='quantity text-sm flex flex-col text-center items-center'>
-                            <button
-                            onClick={() => add(item)}
-                            className='plus border-solid border-2 w-5 rounded-full'>+</button>
-                            <p 
-                            
-                            className='amount'>1</p>
-                            <button className='minus border-solid border-2  w-5 rounded-full'>-</button>
-
-                     </div>
+                    <select
+                        value={item.quantity}
+                        onChange={(e) =>
+                          updateCartHandler(item, e.target.value)
+                        }
+                      >
+                        {[...Array(item.id).keys()].map((x) => (
+                          <option key={x + 1} value={x + 1}>
+                            {x + 1}
+                          </option>
+                        ))}
+                      </select>
                     </td>
                     <td className="p-5 text-right">${item.price}</td>
                     <td className="p-5 text-center">
@@ -106,7 +112,7 @@ function Cart() {
               <li>
                 
                 <button
-                  onClick={() => router.push('login?redirect=/shipping')}
+                 onClick={() => router.push('login?redirect=/shipping')}
                   className="bg-green-400 text-sm text-white mt-6 w-36 rounded-lg p-2 w-full"
                 >
                   Sepeti Onayla

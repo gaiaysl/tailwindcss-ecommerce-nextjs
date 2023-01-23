@@ -1,22 +1,13 @@
 import Link from "next/link";
 import { useContext } from "react";
 import { Store } from '../utils/Store';
+import { useState,useEffect } from "react";
 
 export default function ProductList({products}) {
 
     const { state, dispatch } = useContext(Store);
 
-    const addToCartHandler = () => {
-        const existItem = state.cart.cartItems.find((x) => x.slug === product.id);
-        const quantity = existItem ? existItem.quantity + 1 : 1;
-    
-        if (product < quantity) {
-          alert('Sorry. Product is out of stock');
-          return;
-        }
-    
-        dispatch({ type: 'CART_ADD_ITEM', payload: { ...products, quantity } });
-      };
+   
 
     return (
         <div className=" ">
@@ -43,15 +34,11 @@ export default function ProductList({products}) {
                             </div>
                             <div className=" flex flex-col text-center gap-y-3  ">
                                 <h1 className="text-sm mt-6 font-bold  text-gray-900">{product.title}</h1>
-                                <p className="text-sm font-medium text-gray-900">₺{product.price}</p>
+                                <p className="text-sm font-medium text-gray-900 mb-6">₺{product.price}</p>
                                
                                 </div>
                            
-                                <button 
-                                onClick={addToCartHandler}
-                                className=" p-2  bg-green-400 rounded-lg text-white text-sm">
-                                add to cart
-                                </button>
+                               
                           
                         </div>
                     ))}

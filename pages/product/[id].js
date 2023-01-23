@@ -15,6 +15,7 @@ export default function ProductsDetail({product, categories}){
                 <title>GAIA|Product</title>
             </Head>
            <ProductDetail product={product} />
+      
 
 
         </Layout>
